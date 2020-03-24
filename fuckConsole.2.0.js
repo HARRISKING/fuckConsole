@@ -24,7 +24,7 @@ const question = async function () {
         {
             type: 'confirm',
             name: 'isComfirmed',
-            message: '确定要删除所选项目pages中所有的console.log？'
+            message: '删除该项目中所有的console.log？'
         }
     ])
 

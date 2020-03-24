@@ -1,4 +1,4 @@
-# fuckConsoleNode组件
+# fuckConsole组件
 
 ## 简介
 

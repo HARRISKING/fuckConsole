@@ -2,6 +2,8 @@ const path = require("path");
 const fs = require("fs");
 const inquirer = require('inquirer');
 
+let filePath
+
 const question = async function () {
     const setting = await inquirer.prompt([
         {
@@ -14,8 +16,8 @@ const question = async function () {
                     value: 'pharmacy'
                 },
                 {
-                    name: 'erp',
-                    value: 'erp'
+                    name: 'baselibrary',
+                    value: 'baselibrary'
                 }
             ]
         },
@@ -26,26 +28,18 @@ const question = async function () {
         }
     ])
 
-    console.log('setting', setting)
-
-    if(setting.selectProject.includes('pharmacy')){
-        console.log('123123')
+    if (setting.selectProject.includes('pharmacy')) {
+        filePath = path.join(__dirname, 'src', 'system', 'pharmacy', 'views', 'pages')
+    } else if (setting.selectProject.includes('baselibrary')) {
+        filePath = path.join(__dirname, 'src', 'system', 'baselibrary', 'views', 'pages')
     }
-
+    fileDisplay(filePath);
 }
-
-
 
 question()
 
 
-
-
-
-// modify_here
-const filePath = path.join(__dirname, 'src')
-//调用文件遍历方法
-// fileDisplay(filePath);
+// 支持函数 ===============================================
 
 /**
  * 文件遍历

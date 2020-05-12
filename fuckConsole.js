@@ -90,6 +90,6 @@ function fileDisplay(filePath) {
  */
 function startFucking(fileTarget) {
     const context = fs.readFileSync(fileTarget, 'utf-8');
-    var newValue = context.replace(/console.log\(.*?\)/g, '');
+    var newValue = context.replace(/console.log\(.*?\)|;/g, '');
     fs.writeFileSync(fileTarget, newValue, 'utf-8')
 }
